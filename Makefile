@@ -23,18 +23,23 @@ FILES =		main.c launch_fractol.c expose_hook.c key_hook.c motion_hook.c \
 SRC = 		$(addprefix $(SRC_DIR), $(FILES))
 OBJ = 		$(SRC:.c=.o)
 
-LIB = 		-L /usr/local/lib -lmlx -L libft/ -lft -framework OpenGL -framework AppKit 
-INC =		-I /usr/local/include/ -I $(INC_DIR) -I libft/
+LIB = 		-L ./minilibx_macos/ -lmlx -L libft/ -lft -framework OpenGL -framework AppKit 
+INC =		-I ./minilibx_macos/ -I $(INC_DIR) -I libft/
 
 LIBFT =		libft/libft.a
 
+MLX =		minilibx_macos/libmlx.a
+
 all:		$(NAME)
 
-$(NAME):	$(OBJ) $(LIBFT)
+$(NAME):	$(OBJ) $(LIBFT) $(MLX)
 			gcc -o $@ $^ $(INC) $(LIB)
 
 $(LIBFT):
 			make -C libft/
+
+$(MLX):
+			make -C minilibx_macos/
 
 %.o:		%.c
 			gcc -o $@ -c $^ $(W_FLAGS) $(INC)
