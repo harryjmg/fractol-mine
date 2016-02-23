@@ -52,7 +52,12 @@ int		key_hook(int keycode, t_env *e)
 	}
 	else if (keycode == KEY_C)
 	{
-		e->fractal_id ^= 1;
+		if (e->fractal_id == 1)
+			e->fractal_id = 2;
+		else if (e->fractal_id == 2)
+			e->fractal_id = 0;
+		else if (e->fractal_id == 0)
+			e->fractal_id = 1;
 	}
 	else if (keycode == KEY_D)
 	{

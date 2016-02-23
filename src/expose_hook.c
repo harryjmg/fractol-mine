@@ -47,6 +47,8 @@ int			pixel_get_value(t_env *e, int x, int y)
 		return (fract_mandel(e, x, y));
 	else if (e->fractal_id == 1)
 		return (fract_julia(e, x, y));
+	else if (e->fractal_id == 2)
+		return (fract_burningship(e, x, y));
 	exit(1);
 }
 
@@ -66,6 +68,7 @@ void		expose_event(t_env *e)
 			//printf("%d,%d ", x, y);
 			pixel_value = pixel_get_value(e, x, y);
 			color = color_maker(e, pixel_value);
+			free(color);
 			data_set_color((e->data + (e->sl * y + x * 4)), color[0], color[1], color[2]);
 			y++;
 		}

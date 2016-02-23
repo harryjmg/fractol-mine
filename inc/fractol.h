@@ -8,6 +8,8 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <string.h>
+# include "math.h"
+
 # include "libft.h"
 
 # define KEY_ESCAPE 	53
@@ -35,7 +37,7 @@
 # define COLOR_9		0xFFFF00
 # define COLOR_10		0xFFFF55
 # define COLOR_11		0xFFFFFF
-# define INITIAL_ITER	100
+# define INITIAL_ITER	50
 # define INITIAL_ZOOM 	200
 # define DETAIL			10
 
@@ -101,6 +103,7 @@ int 					motion_hook(int x, int y, t_env *e);
 
 int 					fract_mandel(t_env *e, int x, int y);
 int 					fract_julia(t_env *e, int x, int y);
+int 					fract_burningship(t_env *e, int x, int y);
 
 
 #endif
