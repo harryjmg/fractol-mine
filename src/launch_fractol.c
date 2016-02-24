@@ -12,8 +12,8 @@ static void		launch_hook(t_env *e)
 
 static void		init_win(t_env *e)
 {
-	e->fractal_x[0] = -1;
-	e->fractal_x[1] = 1;
+	e->fractal_x[0] = -1.5;
+	e->fractal_x[1] = 1.5;
 	e->fractal_y[0] = -1.2;
 	e->fractal_y[1] = 1.2;
 

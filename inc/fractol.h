@@ -37,7 +37,7 @@
 # define COLOR_9		0xFFFF00
 # define COLOR_10		0xFFFF55
 # define COLOR_11		0xFFFFFF
-# define INITIAL_ITER	50
+# define INITIAL_ITER	100
 # define INITIAL_ZOOM 	200
 # define DETAIL			10
 

@@ -69,7 +69,10 @@ void		expose_event(t_env *e)
 			pixel_value = pixel_get_value(e, x, y);
 			color = color_maker(e, pixel_value);
 			free(color);
-			data_set_color((e->data + (e->sl * y + x * 4)), color[0], color[1], color[2]);
+			if (e->fractal_id == 2)
+				data_set_color((e->data + (e->sl * abs(e->win_y - y)) + abs(e->win_x - x) * 4), color[0], color[1], color[2]);
+			else
+				data_set_color((e->data + (e->sl * y + x * 4)), color[0], color[1], color[2]);
 			y++;
 		}
 		x++;

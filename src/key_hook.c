@@ -59,10 +59,6 @@ int		key_hook(int keycode, t_env *e)
 		else if (e->fractal_id == 0)
 			e->fractal_id = 1;
 	}
-	else if (keycode == KEY_D)
-	{
-		e->modifier_z[0] -= 0.01;
-	}
 	else
 		printf("pressed : %d\n", keycode);
 	expose_event(e);
