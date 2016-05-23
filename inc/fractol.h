@@ -25,6 +25,7 @@
 # define KEY_Z			6
 # define KEY_D			2
 # define KEY_A			0
+# define KEY_P			35
 # define RGB(r, g, b)	(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
 # define COLOR_1		0x000000
 # define COLOR_2		0x401A00
@@ -60,50 +61,41 @@ typedef struct			s_env
 	int 				max;
 	void				*mlx;
 	void				*win;
-
 	double				zoom;
 	double				fractal_x[2];
 	double				fractal_y[2];
-
 	double				z[2];
 	double				c[2];
-
 	int 				win_x;
 	int 				win_y;
-
 	int					iteration;
-
 	int 				fractal_id;
-
 	void				*img;
 	char				*data;
 	int					bpp;
 	int					sl;
 	int					e;
-
 	int 				color_level[5][2];
 	int 				color[11][3];
 	int 				inter_color;
-
 	int 				*color_val;
-
 	double				modifier_c[2];
 	double 				modifier_z[2];
-
+	int					motion_enabled;
+	int					mouse_pos[2];
 }						t_env;
 
 void					launch_fractol(t_env *e);
 void					expose_event(t_env *e);
 int						expose_hook(t_env *e);
 int 					key_hook(int keycode, t_env *e);
-
 int						ft_color(int i, int imax);
-
 int 					motion_hook(int x, int y, t_env *e);
-
 int 					fract_mandel(t_env *e, int x, int y);
 int 					fract_julia(t_env *e, int x, int y);
 int 					fract_burningship(t_env *e, int x, int y);
-
+void					fill_color_val(t_env *e);
+int						treat_args(t_env *env, int ac, char **av);
+int						mouse_hook(int button, int x ,int y , t_env *e);
 
 #endif

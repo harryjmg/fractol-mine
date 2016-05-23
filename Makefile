@@ -18,7 +18,7 @@ SRC_DIR =	src/
 INC_DIR =	inc/
 
 FILES =		main.c launch_fractol.c expose_hook.c key_hook.c motion_hook.c \
-			fract_mandel.c fract_julia.c
+			fract_mandel.c fract_julia.c colors.c treat_args.c mouse_hook.c
 
 SRC = 		$(addprefix $(SRC_DIR), $(FILES))
 OBJ = 		$(SRC:.c=.o)
