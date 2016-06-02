@@ -1,5 +1,17 @@
-#ifndef FRACTOL_H_
-# define FRACTOL_H_
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hgueguen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/06/02 10:06:24 by hgueguen          #+#    #+#             */
+/*   Updated: 2016/06/02 10:06:28 by hgueguen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 # include "mlx.h"
 # include <stdlib.h>
@@ -42,12 +54,12 @@
 # define INITIAL_ZOOM 	200
 # define DETAIL			10
 
-#define PointerMotionMask (1L<<6)
-#define MotionNotify 6
+# define POINTER_MOTION_MASK (1L<<6)
+# define MOTION_NOTIFY 6
 
 # define WINDOW_NAME "Project Fractol"
 
-typedef struct 			s_img
+typedef struct			s_img
 {
 	void				*img_ptr;
 	void				*data;
@@ -58,7 +70,7 @@ typedef struct 			s_img
 
 typedef struct			s_env
 {
-	int 				max;
+	int					max;
 	void				*mlx;
 	void				*win;
 	double				zoom;
@@ -66,21 +78,21 @@ typedef struct			s_env
 	double				fractal_y[2];
 	double				z[2];
 	double				c[2];
-	int 				win_x;
-	int 				win_y;
+	int					win_x;
+	int					win_y;
 	int					iteration;
-	int 				fractal_id;
+	int					fractal_id;
 	void				*img;
 	char				*data;
 	int					bpp;
 	int					sl;
 	int					e;
-	int 				color_level[5][2];
-	int 				color[11][3];
-	int 				inter_color;
-	int 				*color_val;
+	int					color_level[5][2];
+	int					color[11][3];
+	int					inter_color;
+	int					*color_val;
 	double				modifier_c[2];
-	double 				modifier_z[2];
+	double				modifier_z[2];
 	int					motion_enabled;
 	int					mouse_pos[2];
 }						t_env;
@@ -88,14 +100,14 @@ typedef struct			s_env
 void					launch_fractol(t_env *e);
 void					expose_event(t_env *e);
 int						expose_hook(t_env *e);
-int 					key_hook(int keycode, t_env *e);
+int						key_hook(int keycode, t_env *e);
 int						ft_color(int i, int imax);
-int 					motion_hook(int x, int y, t_env *e);
-int 					fract_mandel(t_env *e, int x, int y);
-int 					fract_julia(t_env *e, int x, int y);
-int 					fract_burningship(t_env *e, int x, int y);
+int						motion_hook(int x, int y, t_env *e);
+int						fract_mandel(t_env *e, int x, int y);
+int						fract_julia(t_env *e, int x, int y);
+int						fract_burningship(t_env *e, int x, int y);
 void					fill_color_val(t_env *e);
 int						treat_args(t_env *env, int ac, char **av);
-int						mouse_hook(int button, int x ,int y , t_env *e);
+int						mouse_hook(int button, int x, int y, t_env *e);
 
 #endif

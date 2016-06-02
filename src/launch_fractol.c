@@ -17,7 +17,7 @@ static void		launch_hook(t_env *e)
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_key_hook(e->win, key_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);
-	mlx_hook(e->win, MotionNotify, PointerMotionMask, motion_hook, e);
+	mlx_hook(e->win, MOTION_NOTIFY, POINTER_MOTION_MASK, motion_hook, e);
 }
 
 static void		init_win(t_env *e)
